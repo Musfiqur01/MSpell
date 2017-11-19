@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <projectUrl>https://github.com/Musfiqur01/MSpell</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+	<summary> Correct the spelling mistakes. No support for prefix or affix analysis in this release. It is faster than NHunspell and Lucene spell checker. However, it is little bit slower than symspell dictionary but takes a lot less memory.
+	</summary>
+    <releaseNotes>The first release</releaseNotes>
+    <copyright>Copyright 2017 , Musfiqur Rahman</copyright>
+    <tags>spell spellcheck spellcorrect spelling dictionary</tags>
+  </metadata>
+  <files>
+	<file src=".\bin\Release\netcoreapp1.1\MSpell.xml" target="lib"/>
+  </files>
+</package>

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputType>winexe</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputTypeEx>winexe</OutputTypeEx>
+    <StartupObject />
+    <Authors>Musfiqur Rahman</Authors>
+    <Company />
+    <Product>MSpell Spellcheck</Product>
+    <Description>Correct the spelling mistakes. Similar to any other dictionaries except Hunspell, but more performant.</Description>
+    <Copyright>Copyright (c) 2017 Musfiqur Rahman</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp1.1\MSpell.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp1.1\MSpell.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>
