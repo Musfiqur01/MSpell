@@ -94,7 +94,7 @@ namespace MSpellTest
         }
 
         [TestMethod]
-        public void IsSpellingCorrect_Returns_True_For_Invalid_Word()
+        public void IsSpellingCorrect_Returns_False_For_Invalid_Word()
         {
             // Arrange
             var spellChecker = new MSpell.SpellChecker();
