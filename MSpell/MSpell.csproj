@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputType>winexe</OutputType>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <ApplicationIcon />
-    <OutputTypeEx>winexe</OutputTypeEx>
+    <OutputTypeEx>library</OutputTypeEx>
     <StartupObject />
     <Authors>Musfiqur Rahman</Authors>
     <Company />

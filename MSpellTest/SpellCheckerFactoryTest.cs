@@ -8,6 +8,7 @@ namespace MSpellTest
     public class SpellCheckerFactoryTest
     {
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void AddSpellChecker_When_SpellChecker_Null()
         {
             // Arrange

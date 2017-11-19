@@ -37,6 +37,11 @@ namespace MSpell
         /// <param name="spellchecker"></param>
         public void AddSpellChecker(string language, ISpellChecker spellchecker)
         {
+            if(spellchecker is null)
+            {
+                throw new ArgumentNullException(nameof(spellchecker));
+            }
+
             this.languageSpellCheckerMapping.Add(language , spellchecker);
         }
     }

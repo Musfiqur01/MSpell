@@ -78,7 +78,7 @@ namespace MSpell
             var allCandidates = new List<Candidate>();
             var input = new Candidate(word, 0, this.head, 0);
             var candidates = input.GenerateCandidate(editDistance);
-            var validWords = new List<Candidate>();
+            var validWords = new Dictionary<Candidate, Candidate>();
             var queue = new Queue<Candidate>();
             foreach (var c in candidates)
             {
@@ -90,7 +90,17 @@ namespace MSpell
                 var candidate = queue.Dequeue();
                 if (IsSpellingCorrect(candidate.Word))
                 {
-                    validWords.Add(candidate);
+                    if (!validWords.ContainsKey(candidate)){
+                        validWords.Add(candidate,candidate);
+                    }
+                    else
+                    {
+                        var prevCandidate = validWords[candidate];
+                        if (prevCandidate.EditDistance > candidate.EditDistance)
+                        {
+                            validWords[candidate] = candidate;
+                        }
+                    }
                 }
 
                 if (candidate.EditDistance < editDistance)
@@ -103,10 +113,58 @@ namespace MSpell
                 }
             }
 
-            var suggestedCandidate = validWords.Distinct().ToList();
-            suggestedCandidate.Sort();
+            var suggestedCandidate = new List<Candidate>();
+
+            // seperate candidates acccording to edit distance
+            var editDistanceToCandidate = new Dictionary<int, List<Candidate>>();
+            foreach(var candidate in validWords.Values.ToList())
+            {
+                if (!editDistanceToCandidate.ContainsKey(candidate.EditDistance))
+                {
+                    editDistanceToCandidate.Add(candidate.EditDistance, new List<Candidate>());
+                }
+
+                editDistanceToCandidate[candidate.EditDistance].Add(candidate);
+            }
+            
+            // Add the candidates in suggested candidate
+            for(int i = 1; i <= editDistance; i++)
+            {
+                if (editDistanceToCandidate.ContainsKey(i))
+                {
+                    suggestedCandidate.AddRange(PrefixBasedSort(word, editDistanceToCandidate[i]));
+                }                
+            }
 
             return suggestedCandidate;
+        }
+
+        /// <summary>
+        /// Sorts a list based on prefix match with an input word
+        /// </summary>
+        /// <param name="word">The word</param>
+        /// <param name="candidates">The candidates</param>
+        /// <returns></returns>
+        public static List<Candidate> PrefixBasedSort(string word, List<Candidate> candidates)
+        {
+            var sortedList = new List<Tuple<int,Candidate>>();
+            foreach(var candidate in candidates)
+            {
+                int matchedCount = 0;
+                while(matchedCount < candidate.Word.Length && matchedCount < word.Length && word[matchedCount] == candidate.Word[matchedCount])
+                {
+                    matchedCount++;
+                }
+
+                sortedList.Add(new Tuple<int, Candidate>(matchedCount, candidate));
+            }
+
+            sortedList.Sort((s, t) => {
+                    if (s.Item1 == t.Item1) return t.Item2.Word.Length.CompareTo(s.Item2.Word.Length);
+                    return t.Item1.CompareTo(s.Item1);
+                });
+
+            return sortedList.Select(t => t.Item2).ToList();
         }
     }
 }

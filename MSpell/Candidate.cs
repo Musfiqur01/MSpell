@@ -26,6 +26,17 @@ namespace MSpell
         }
 
         /// <summary>
+        /// Creates a new instance of the <see cref="Candidate"/> class.
+        /// </summary>
+        /// <param name="word">The word</param>
+        /// <param name="editDistance">The distance of the candidate from the original </param>
+        public Candidate(string word, int editDistance)
+        {
+            this.Word = word.ToLowerInvariant();
+            this.EditDistance = editDistance;
+        }
+
+        /// <summary>
         /// Gets the edit distance of the candidate from the original word
         /// </summary>
         public int EditDistance { get; }
@@ -96,9 +107,14 @@ namespace MSpell
                     var replaceCandidate = new Candidate(replacedWord.ToString(), Index, Node, EditDistance + 1);
                     if (!candidates.Contains(replaceCandidate)) candidates.Add(replaceCandidate);
                 }
+
                 // generate the insert candidates
                 var insertedWord = new StringBuilder(Word);
                 insertedWord.Insert(Index, c);
+                if(Word.Equals("mon") && c.Equals('o'))
+                {
+
+                }
                 var insertCandidate = new Candidate(insertedWord.ToString(), Index, Node, EditDistance + 1);
                 if (!candidates.Contains(insertCandidate)) candidates.Add(insertCandidate);
             }
