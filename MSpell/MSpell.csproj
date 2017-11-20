@@ -12,8 +12,11 @@
     <Authors>Musfiqur Rahman</Authors>
     <Company />
     <Product>MSpell Spellcheck</Product>
-    <Description>Correct the spelling mistakes. Similar to any other dictionaries except Hunspell, but more performant.</Description>
+    <Description>A native .net core spellchecker.</Description>
     <Copyright>Copyright (c) 2017 Musfiqur Rahman</Copyright>
+    <PackageProjectUrl>https://github.com/Musfiqur01/MSpell</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Musfiqur01/MSpell</RepositoryUrl>
+    <PackageTags>spellcheck, spelling, spell</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
