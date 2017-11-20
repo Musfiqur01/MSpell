@@ -148,7 +148,7 @@ namespace MSpell
         /// <returns>A string representation which contains the word and its editdistance</returns>
         public override string ToString()
         {
-            return $"<{this.Word},D:{this.EditDistance}";
+            return $"<{this.Word},D:{this.EditDistance}>";
         }
 
         /// <summary>

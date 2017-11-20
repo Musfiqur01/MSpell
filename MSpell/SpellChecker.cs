@@ -48,7 +48,7 @@ namespace MSpell
         }
 
         /// <summary>
-        /// Adds the words to the internal dictionary
+        /// Adds the words in the list to the internal dictionary
         /// </summary>
         /// <param name="dictionary">The dictionary</param>
         public void Train(List<string> dictionary)
@@ -68,7 +68,7 @@ namespace MSpell
         }
 
         /// <summary>
-        /// Returns all the word in the dictionary with specified edit distance
+        /// Returns all the word in the dictionary with the specified edit distance
         /// </summary>
         /// <param name="word">The word</param>
         /// <param name="editDistance">The distance</param>
