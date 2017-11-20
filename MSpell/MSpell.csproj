@@ -24,4 +24,10 @@
     <DocumentationFile>bin\Release\netcoreapp1.1\MSpell.xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="Readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

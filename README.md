@@ -1,5 +1,7 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/eoto2o84wgjysoil?svg=true)](https://ci.appveyor.com/project/Musfiqur01/mspell)
+
 # MSpell
-Identifies spelling mistakes and correct those.
+Identifies spelling mistakes and suggests replacements.
 
 ## Getting Started
 
@@ -8,7 +10,9 @@ Install the nuget package to get started.
 The usage is:
 
 var spellChecker = new MSpell.SpellChecker();
+
 var dictionary = new List<string> {"moon","soon","mono","windows"};
+
 spellChecker.Train(dictionary);
             
 var suggestion = spellChecker.GetSuggestedWords("mon", 1);
