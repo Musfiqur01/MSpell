@@ -17,7 +17,7 @@
     <PackageProjectUrl>https://github.com/Musfiqur01/MSpell</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Musfiqur01/MSpell</RepositoryUrl>
     <PackageTags>spellcheck, spelling, spell</PackageTags>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <PackageReleaseNotes>Added support for .netcore 1.1, 2.0 and .net framework 4.0, 4.5, 4.5.1, 4.5.2, 4.6.1, 4.6.2 and 4.7</PackageReleaseNotes>
   </PropertyGroup>
 
