@@ -33,5 +33,30 @@ namespace MSpellTest
             // Assert
         }
 
+        [TestMethod]
+        public void IsLanguageSupported_True_If_The_Language_Is_Added()
+        {
+            // Arrange
+            var spellCheckerFactory = new MSpell.SpellCheckerFactory();
+
+            // Act
+            spellCheckerFactory.AddSpellChecker("en", new MSpell.SpellChecker());
+
+            // Assert
+            Assert.IsTrue(spellCheckerFactory.IsLanguageSupported("en"));
+        }
+
+        [TestMethod]
+        public void IsLanguageSupported_False_If_The_Language_Is_Not_Added()
+        {
+            // Arrange
+            var spellCheckerFactory = new MSpell.SpellCheckerFactory();
+
+            // Act
+            spellCheckerFactory.AddSpellChecker("en", new MSpell.SpellChecker());
+
+            // Assert
+            Assert.IsFalse(spellCheckerFactory.IsLanguageSupported("de"));
+        }
     }
 }

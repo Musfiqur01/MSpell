@@ -14,6 +14,13 @@ namespace MSpell
         void AddSpellChecker(string language, ISpellChecker spellchecker);
 
         /// <summary>
+        /// Determines if the langauge is supported
+        /// </summary>
+        /// <param name="language">The language</param>
+        /// <returns>True if the language is supported</returns>
+        bool IsLanguageSupported(string language);
+
+        /// <summary>
         /// The indexer for the Spellchecker 
         /// </summary>
         /// <param name="language">The language</param>

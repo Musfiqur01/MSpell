@@ -28,7 +28,7 @@ namespace MSpell
         /// </summary>
         /// <param name="language">The language</param>
         /// <returns></returns>
-        public ISpellChecker this[string language] => this.languageSpellCheckerMapping[language];
+        public ISpellChecker this[string language] => this.languageSpellCheckerMapping[language.ToLowerInvariant()];
 
         /// <summary>
         /// Adds a spellchecker to the factory.
@@ -42,7 +42,17 @@ namespace MSpell
                 throw new ArgumentNullException(nameof(spellchecker));
             }
 
-            this.languageSpellCheckerMapping.Add(language , spellchecker);
+            this.languageSpellCheckerMapping.Add(language.ToLowerInvariant() , spellchecker);
+        }
+
+        /// <summary>
+        /// Determines if the langauge is supported
+        /// </summary>
+        /// <param name="language">The language</param>
+        /// <returns>True if the language is supported</returns>
+        public bool IsLanguageSupported(string language)
+        {
+            return this.languageSpellCheckerMapping.ContainsKey(language.ToLowerInvariant());
         }
     }
 }
