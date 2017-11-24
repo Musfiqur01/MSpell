@@ -5,28 +5,27 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFrameworks>netcoreapp1.1;netcoreapp2.0;net40;net45;net451;net452;net461;net462;net47</TargetFrameworks>
     <ApplicationIcon />
     <OutputTypeEx>library</OutputTypeEx>
     <StartupObject />
     <Authors>Musfiqur Rahman</Authors>
     <Company />
     <Product>MSpell Spellcheck</Product>
-    <Description>A native .net core spellchecker.</Description>
+    <Description>A native .net core spellchecker. Compatible with .netcore 1.1, 2.0 and .net framework 4.0, 4.5, 4.5.1, 4.5.2, 4.6.1, 4.6.2 and 4.7</Description>
     <Copyright>Copyright (c) 2017 Musfiqur Rahman</Copyright>
     <PackageProjectUrl>https://github.com/Musfiqur01/MSpell</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Musfiqur01/MSpell</RepositoryUrl>
     <PackageTags>spellcheck, spelling, spell</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageReleaseNotes>Added support for .netcore 1.1, 2.0 and .net framework 4.0, 4.5, 4.5.1, 4.5.2, 4.6.1, 4.6.2 and 4.7</PackageReleaseNotes>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netcoreapp1.1\MSpell.xml</DocumentationFile>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\MSpell.xml</DocumentationFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netcoreapp1.1\MSpell.xml</DocumentationFile>
-  </PropertyGroup>
-
+  
   <ItemGroup>
     <None Update="Readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -160,9 +160,11 @@ namespace MSpell
             }
 
             sortedList.Sort((s, t) => {
-                    if (s.Item1 == t.Item1) return t.Item2.Word.Length.CompareTo(s.Item2.Word.Length);
-                    return t.Item1.CompareTo(s.Item1);
-                });
+                // if same edit distance, prefers the longer string.
+                if (s.Item1 == t.Item1) return t.Item2.Word.Length.CompareTo(s.Item2.Word.Length);
+                // Sort by prefix match count
+                return t.Item1.CompareTo(s.Item1);
+            });
 
             return sortedList.Select(t => t.Item2).ToList();
         }

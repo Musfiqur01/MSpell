@@ -45,9 +45,9 @@ namespace MSpellTest
         public void PrefixBasedSort_Prioritizes_Highest_Prefix_Match()
         {
             var candidates = new List<Candidate> {
-                { new Candidate("windows",1)},
-                { new Candidate("window",1) },
-                { new Candidate("mindow",1) }
+                { new Candidate("windows" ,1)},
+                { new Candidate("window" ,1) },
+                { new Candidate("mindow" ,1) }
             };
 
             var result = SpellChecker.PrefixBasedSort("windwos", candidates);
